@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .photo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .photo-item img {
+      width: 250px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .caption {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+      color: #0077cc;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h2>My Travelling Gallery</h2>
+  <p>Here are some places I've visited:</p>
+
+  <div class="gallery">
+    <div class="photo-item">
+      <img src="WashingtonDC.jpg" alt="Washington DC">
+      <div class="caption">WashingtonDC</div>
+    </div>
+    <div class="photo-item">
+      <img src="Philadelphia.jpg" alt="Philadelphia">
+      <div class="caption">Philadelphia</div>
+    </div>
+    <div class="photo-item">
+      <img src="NewYork.jpg" alt="New York">
+      <div class="caption">NewYork</div>
+    </div>
+    <div class="photo-item">
+      <img src="Florida.jpg" alt="Florida">
+      <div class="caption">Florida</div>
+    </div>
+    <div class="photo-item">
+      <img src="Boston.jpg" alt="Boston">
+      <div class="caption">Boston</div>
+    </div>
+    <div class="photo-item">
+      <img src="PuertoRico.jpg" alt="Puerto Rico">
+      <div class="caption">PuertoRico</div>
+    </div>
+  </div>
+
+  <br>
+  <a href="index.html">← Back to Hobbies</a>
+</body>
+</html>
