@@ -19,7 +19,7 @@
     <head>
        <meta charset="utf-8">
        <meta name="viewport" content="width=device-width, initial-scale=1">
-       <title>Zixuan's World</title>        
+       <title>Zixuan's World</title>
        <!-- Ptengine Tag -->
        <script src="https://js.ptengine.com/17gsysq8.js"></script>
        <!-- End Ptengine Tag -->
@@ -32,10 +32,104 @@
             font-size: 20px;
             color: #0A66C2;
           }
+              /* 轮播图样式 */
+              .carousel {
+                position: relative;
+                max-width: 800px;   /* 保持和原来图片差不多大小 */
+                height: 400px;  /* 统一高度 */
+                overflow: hidden;
+                border-radius: 12px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+              }
+    
+              .carousel img {
+                width: 100%;
+                height: 100%;
+                display: none;
+                object-fit: cover;
+              }
+    
+              .carousel img.active {
+                display: block;
+              }
+    
+              .btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0,0,0,0.5);
+                color: white;
+                border: none;
+                font-size: 2rem;
+                padding: 10px;
+                cursor: pointer;
+              }
+              .btn.left { left: 10px; }
+              .btn.right { right: 10px; }
+    
+              .dots {
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                gap: 8px;
+              }
+              .dots span {
+                width: 12px;
+                height: 12px;
+                background: rgba(255,255,255,0.7);
+                border-radius: 50%;
+                cursor: pointer;
+              }
+              .dots span.active {
+                background: white;
+              }
+              .self-intro-container {
+                max-width: 800px;
+                margin: 25px 0 25px 40px; /* ✅ 改成固定左对齐，与contact-info左边对齐 */
+                padding: 20px 25px;
+                background: #f9fafb;
+                border-left: 4px solid #0A66C2;
+                border-radius: 8px;
+                font-family: "Segoe UI", Arial, sans-serif;
+                color: #333;
+                line-height: 1.6;
+                text-align: left;
+              }
+              
+            
+              .self-intro-container h3 {
+                color: #0A66C2;
+                margin-bottom: 10px;
+                font-size: 20px;
+                font-weight: 600;
+              }
+            
+              .self-intro-container p {
+                margin-bottom: 8px;
+              }
+            
+              .contact-info {
+                list-style: none;
+                padding-left: 0;
+                margin: 10px 0 20px 10px;
+              }
+            
+              .contact-info li {
+                margin-bottom: 6px;
+                font-size: 15px;
+              }
+            
+              .contact-info a {
+                text-decoration: none;
+                color: #0A66C2;
+                font-weight: 500;
+              }
         </style>
       </head>
       <body>
-        <ul>
+        <ul class="contact-info">
             <li>
                 <a href="https://www.linkedin.com/in/zixuan-liu-39982621b/" target="_blank">
                   <i class="fab fa-linkedin linkedin-icon"></i>
@@ -45,8 +139,76 @@
             <li>📧Email:liuzixuan1103@gmail.com</li>
             <li>☎️Phone Number:17319042776</li>
         </ul>
+      <div class="self-intro-container">
+        <h3>About Me</h3>
+        <p>
+          With a background in Engineering Management, I possess solid experience in data analysis, ERP/CRM systems, and business operations.
+        </p>
+        <p>
+          I am passionate about projects that bridge technology and business challenges, driving process improvements and delivering measurable value to customers.
+        </p>
+        <p>
+          In addition to my technical expertise in digital transformation, AI, data analytics, and machine learning, I enjoy collaborating with people and working in cross-functional teams to solve complex business, product, and user-related problems.
+        </p>
+        <p>
+          I thrive in environments that require effective communication and cross-departmental collaboration to achieve shared goals.
+        </p>
+      </div>
         <h2><i>we are all in the gutter, but some of us are looking at the stars"</i></h2>
-        <img src="https://www.mccormick.northwestern.edu/images/news/2023/07/what-does-a-twinkling-star-sound-like-take-a-listen-social.jpg"style="width: 500px; height: auto;">
+           <!-- 修改为轮播图 -->
+           <div class="carousel">
+            <img src="https://static.wixstatic.com/media/aa0a02_663ceda28bf64b21aaf3282cc52c8467~mv2.png" class="active">
+            <img src="2.jpeg">
+            <img src="3.jpeg">
+            <img src="4.jpeg">
+            <img src="5.jpeg">
+  
+            <button class="btn left">&#10094;</button>
+            <button class="btn right">&#10095;</button>
+  
+            <div class="dots">
+              <span class="active"></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+  
+          <script>
+            const images = document.querySelectorAll(".carousel img");
+            const dots = document.querySelectorAll(".dots span");
+            const prevBtn = document.querySelector(".btn.left");
+            const nextBtn = document.querySelector(".btn.right");
+  
+            let index = 0;
+  
+            function showSlide(i) {
+              images.forEach((img, idx) => {
+                img.classList.toggle("active", idx === i);
+                dots[idx].classList.toggle("active", idx === i);
+              });
+              index = i;
+            }
+  
+            function nextSlide() {
+              showSlide((index + 1) % images.length);
+            }
+  
+            function prevSlide() {
+              showSlide((index - 1 + images.length) % images.length);
+            }
+  
+            nextBtn.addEventListener("click", nextSlide);
+            prevBtn.addEventListener("click", prevSlide);
+  
+            dots.forEach((dot, i) => {
+              dot.addEventListener("click", () => showSlide(i));
+            });
+  
+            // 自动播放（4秒）
+            setInterval(nextSlide, 4000);
+          </script>
         <h3>Technical Skills</h3>
             <ul>
                 <li>Coding</li>
@@ -194,13 +356,13 @@
             
             <strong>At Walmart</strong>, I was responsible for seller management and data analysis, which strengthened my <strong>B2B client communication, data-driven analytical thinking, and the ability to multitask and manage parallel problem-solving skills.</strong>
             This role required me to work closely with sellers to understand their needs and support seller operations. 
-            From onboarding sellers onto the platform to maintaining communication throughout the mid-term via phone and online channels, I gathered user feedback and pain points, which I organized into knowledge base documentation. 
+            From onboarding sellers onto the platform to maintaining communication throughout the mid-term via phone and online channels, I gathered user feedback and pain points, which I organized into knowledge-base documentation. 
             Additionally, I used data analysis tools and dashboards such as Looker to provide sellers with targeted, data-driven recommendations.
             I analyzed seller data, user behavior data, and order data to uncover hidden links between sellers and between sellers and orders. 
             This allowed me to identify potentially high-risk sellers and prevent fraudulent transactions, saving significant losses for both customers and the platform.<br>
 
             <strong>At Microsoft</strong>, I gained valuable experience with SaaS products, particularly in the AI domain, and how such tools can empower enterprise-level clients to drive business growth
-            , which deepened my understanding of <strong>SaaS B2B enterprise product models, strengthened my hands-on experience in client enablement, and reinforced my strong interest in business analysis. </strong>
+            ,which deepened my understanding of <strong>SaaS B2B enterprise product models, strengthened my hands-on experience in client enablement, and reinforced my strong interest in business analysis. </strong>
             This experience sparked my interest in analyzing real-world business challenges across different types of enterprises and deepened my understanding of practical business scenarios.
              It also led me to reflect more deeply on the business models of software and tool-based companies.<br>
 
