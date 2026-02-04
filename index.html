@@ -32,102 +32,122 @@
             font-size: 20px;
             color: #0A66C2;
           }
-              /* 轮播图样式 */
-              .carousel {
-                position: relative;
-                max-width: 800px;   /* 保持和原来图片差不多大小 */
-                height: 400px;  /* 统一高度 */
-                overflow: hidden;
-                border-radius: 12px;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-              }
+          /* About Me 容器 */
+          .self-intro-container {
+              max-width: 800px;
+              margin: 25px 0 25px 40px;
+              padding: 20px 25px;
+              background: #f9fafb;
+              border-left: 4px solid #0A66C2;
+              border-radius: 8px;
+              font-family: "Segoe UI", Arial, sans-serif;
+              color: #333;
+              line-height: 1.6;
+              text-align: left;
+            }
+
+
+          /* About Me 标题 + 音乐 icon */
+          .about-header {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* 让 icon 紧挨着 About Me */
+            margin-bottom: 10px;
+          }
+
+
+          .about-header h3 {
+            color: #0A66C2;
+            font-size: 20px;
+            font-weight: 600;
+            margin:0;
+          }
+
+          .music-icon {
+            font-size: 18px;
+            color: #0A66C2;
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease;
+          }
+
+          .music-icon:hover {
+            transform: scale(1.15);
+            color: #084c94;
+          }
+
+          /* 联系方式 */
+          .contact-info {
+            list-style: none;
+            padding-left: 0;
+            margin: 10px 0 20px 10px;
+          }
+
+          .contact-info li {
+            margin-bottom: 6px;
+            font-size: 15px;
+          }
+
+          .contact-info a {
+            text-decoration: none;
+            color: #0A66C2;
+            font-weight: 500;
+          }
+          /* 轮播图样式（原样保留） */
+          .carousel {
+            position: relative;
+            max-width: 800px;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+          }
     
-              .carousel img {
-                width: 100%;
-                height: 100%;
-                display: none;
-                object-fit: cover;
-              }
-    
-              .carousel img.active {
-                display: block;
-              }
-    
-              .btn {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(0,0,0,0.5);
-                color: white;
-                border: none;
-                font-size: 2rem;
-                padding: 10px;
-                cursor: pointer;
-              }
-              .btn.left { left: 10px; }
-              .btn.right { right: 10px; }
-    
-              .dots {
-                position: absolute;
-                bottom: 10px;
-                left: 50%;
-                transform: translateX(-50%);
-                display: flex;
-                gap: 8px;
-              }
-              .dots span {
-                width: 12px;
-                height: 12px;
-                background: rgba(255,255,255,0.7);
-                border-radius: 50%;
-                cursor: pointer;
-              }
-              .dots span.active {
-                background: white;
-              }
-              .self-intro-container {
-                max-width: 800px;
-                margin: 25px 0 25px 40px; /* ✅ 改成固定左对齐，与contact-info左边对齐 */
-                padding: 20px 25px;
-                background: #f9fafb;
-                border-left: 4px solid #0A66C2;
-                border-radius: 8px;
-                font-family: "Segoe UI", Arial, sans-serif;
-                color: #333;
-                line-height: 1.6;
-                text-align: left;
-              }
-              
-            
-              .self-intro-container h3 {
-                color: #0A66C2;
-                margin-bottom: 10px;
-                font-size: 20px;
-                font-weight: 600;
-              }
-            
-              .self-intro-container p {
-                margin-bottom: 8px;
-              }
-            
-              .contact-info {
-                list-style: none;
-                padding-left: 0;
-                margin: 10px 0 20px 10px;
-              }
-            
-              .contact-info li {
-                margin-bottom: 6px;
-                font-size: 15px;
-              }
-            
-              .contact-info a {
-                text-decoration: none;
-                color: #0A66C2;
-                font-weight: 500;
-              }
+          .carousel img {
+            width: 100%;
+            height: 100%;
+            display: none;
+            object-fit: cover;
+          }
+
+          .carousel img.active {
+            display: block;
+          }
+
+          .btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            padding: 10px;
+            cursor: pointer;
+          }
+          .btn.left { left: 10px; }
+          .btn.right { right: 10px; }
+
+          .dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+          }
+          .dots span {
+            width: 12px;
+            height: 12px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 50%;
+            cursor: pointer;
+          }
+
+          .dots span.active {
+            background: white;
+          }
         </style>
-      </head>
+  </head>
       <body>
         <ul class="contact-info">
             <li>
@@ -139,8 +159,12 @@
             <li>📧Email:liuzixuan1103@gmail.com</li>
             <li>☎️Phone Number:17319042776</li>
         </ul>
-      <div class="self-intro-container">
-        <h3>About Me</h3>
+        <div class="self-intro-container">
+          <div class="about-header">
+            <h3>About Me</h3>
+            <i id="musicToggle" class="fa-solid fa-music music-icon" title="Play music"></i>
+          </div>
+
         <p>
           With a background in Engineering Management, I possess solid experience in data analysis, ERP/CRM systems, and business operations.
         </p>
@@ -154,6 +178,7 @@
           I thrive in environments that require effective communication and cross-departmental collaboration to achieve shared goals.
         </p>
       </div>
+      <audio id="bgMusic" src="music.m4a"></audio>
         <h2><i>we are all in the gutter, but some of us are looking at the stars"</i></h2>
            <!-- 修改为轮播图 -->
            <div class="carousel">
@@ -208,6 +233,22 @@
   
             // 自动播放（4秒）
             setInterval(nextSlide, 4000);
+
+            /* 🎵 音频播放逻辑（新增） */
+            const music = document.getElementById("bgMusic");
+            const musicToggle = document.getElementById("musicToggle");
+            let isPlaying = false;
+
+            musicToggle.addEventListener("click", () => {
+              if (!isPlaying) {
+                music.play();
+                musicToggle.classList.replace("fa-music", "fa-pause");
+              } else {
+                music.pause();
+                musicToggle.classList.replace("fa-pause", "fa-music");
+              }
+              isPlaying = !isPlaying;
+            });
           </script>
         <h3>Technical Skills</h3>
             <ul>
